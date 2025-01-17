@@ -13,8 +13,8 @@ type (
 	}
 )
 
-func NewFileSystemCache(path string) CacheInterface {
-	err := os.MkdirAll(path, os.ModePerm) // os.ModePerm sets permissions to 0777
+func NewFileSystemCache(path string) Cache {
+	err := os.MkdirAll(path, os.ModePerm)
 	if err != nil {
 		log.Fatalf("Error creating folder: %v\n", err)
 	}

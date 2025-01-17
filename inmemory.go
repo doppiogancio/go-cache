@@ -8,8 +8,10 @@ type (
 	}
 )
 
-func NewInMemoryCache() CacheInterface {
-	return &InMemoryCache{}
+func NewInMemoryCache() Cache {
+	return &InMemoryCache{
+		db: make(map[string][]byte),
+	}
 }
 
 func (c *InMemoryCache) Get(key string) ([]byte, error) {
